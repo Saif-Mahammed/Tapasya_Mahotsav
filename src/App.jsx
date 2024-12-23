@@ -31,7 +31,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "admin" && password === "pass") {
+    if (username === "tapasya" && password === "tapasyathandavm") {
       onLogin();
     } else {
       alert("Invalid credentials!");
@@ -74,7 +74,7 @@ const App = () => {
   const [sortOption, setSortOption] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/events")
+    fetch("http://10.0.7.12:3001/api/events")
       .then((res) => res.json())
       .then((data) => setEvents(data));
   }, []);
@@ -84,7 +84,7 @@ const App = () => {
       alert("All fields are required!");
       return;
     }
-    fetch("http://localhost:3001/api/events", {
+    fetch("http://10.0.7.12:3001/api/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newEvent),
@@ -96,7 +96,7 @@ const App = () => {
 
   const handleDeleteEvent = (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
-    fetch(`http://localhost:3001/api/events/${id}`, {
+    fetch(`http://10.0.7.12:3001/api/events/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
